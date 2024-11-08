@@ -425,8 +425,10 @@ class GameLauncherApp(QMainWindow):
     def update_colors(self):
         bg_color = "#26242f" if self.dark_mode else "darkGrey"
         self.setStyleSheet(f"background-color: {bg_color};")
-        self.game_counter_label.setStyleSheet(f"color: {("white" if self.dark_mode else "black")}; font-size: 42px; font-weight: bold;")
+        color = "white" if self.dark_mode else "black"
+        self.game_counter_label.setStyleSheet(f"color: {color}; font-size: 42px; font-weight: bold;")
         self.update_info_view()
+
 
     def open_settings(self):
         self.settings_dialog.exec_()
