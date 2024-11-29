@@ -103,7 +103,7 @@ class SettingsDialog(QDialog):
                 for directory in selected_directories:
                     self.directory_list_widget.addItem(directory)
 
-                online_games_dir = "C:/Users/jakec/Desktop/CS/.PERSONAL PROJECTS/GAMEGUI/Online Games"
+                online_games_dir = "./Online Games"
                 if self.show_online_games and online_games_dir not in selected_directories:
                     self.directory_list_widget.addItem(online_games_dir)
                 elif not self.show_online_games:
@@ -446,7 +446,7 @@ class GameLauncherApp(QMainWindow):
 
         # Example path: assuming each game's cover image is named after the game
         game_cover_filename = f"{self.selected_game}.jpg"
-        game_cover_path = os.path.join("C:/Users/jakec/Desktop/CS/.PERSONAL PROJECTS/GAMEGUI/photos", game_cover_filename)
+        game_cover_path = os.path.join("./photos", game_cover_filename)
         print(f"Constructed cover image path: {game_cover_path}")
 
         if os.path.exists(game_cover_path):
@@ -490,8 +490,6 @@ class GameLauncherApp(QMainWindow):
         self.last_played_label.setText(f"Last Played: {last_played}")
         #self.total_played_label.setText(f"Total Time Played: {total_played}")
         print("Info view updated")
-
-
 
     def create_or_update_tracker(self):
         game_tracker_path = "game_tracker.json"
@@ -650,7 +648,7 @@ class GameLauncherApp(QMainWindow):
 
         
         # Handle online games
-        online_games_dir = "C:/Users/jakec/Desktop/CS/.PERSONAL PROJECTS/GAMEGUI/Online Games"
+        online_games_dir = "./Online Games"
         if self.show_online_games:
             if os.path.isdir(online_games_dir):
                 for file_name in os.listdir(online_games_dir):
